@@ -1,0 +1,36 @@
+package com.company;
+
+import java.util.*;
+
+
+public class Main {
+
+    public static final List<Integer> inputList = Arrays.asList(6, 2, 4, 5, 3, 1, 8, 9, 10);
+
+    public static void main(String[] args) {
+
+        Integer index = 0;
+        Integer router;
+        List<Integer> listMO = inputList.subList(1, inputList.size());
+        List<Integer> resultList = new ArrayList<>();
+
+        for (int i = 0; i <= inputList.size(); i++) {
+            if (i == listMO.size() - 1) {
+                if(inputList.get(inputList.size()-1)>resultList.get(resultList.size()-1))
+                    resultList.add(inputList.get(inputList.size()-1));
+                break;
+            }
+                if (inputList.get(i) < listMO.get(i)) {
+                    if (resultList.size() == 0) {
+                        resultList.add(inputList.get(i));
+                        resultList.add(listMO.get(i));
+                    } else {
+                        resultList.add(listMO.get(i));
+                    }
+                }
+
+        }
+        resultList.forEach(System.out::println);
+        System.out.println("Max List Size is :"+resultList.size());
+    }
+}
